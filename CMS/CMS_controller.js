@@ -1,6 +1,7 @@
 const mysql = require('mysql');
 const inquirer = require('inquirer');
 const cTable = require('console.table');
+const queryHandler = require('./CMS_queries.js');
 
 const connection = mysql.createConnection({
     host: 'localhost',
@@ -12,10 +13,12 @@ const connection = mysql.createConnection({
 
 connection.connect((err) => {
     if (err) throw err;
+
     console.log(`CONNECTION ESTABLISHED WITH ${connection.database}`);
+    const queries = new queryHandler(connection);
     init();
 })
-
+// how to call init after the query is complete from a seperate class
 function init() {
     inquirer.prompt(
         {
@@ -65,9 +68,11 @@ function init() {
             case 'Exit':
                 connection.end();
                 console.log(`CONNECTION CLOSED WITH ${connection.database}`);
+                break
             default:
                 connection.end();
                 console.log(`CONNECTION CLOSED WITH ${connection.database}`);
+                break
         }
-    })
+    });
 }
