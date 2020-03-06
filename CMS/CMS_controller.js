@@ -1,7 +1,7 @@
 const mysql = require('mysql');
 const inquirer = require('inquirer');
 const cTable = require('console.table');
-const queryHandler = require('./CMS_queries.js');
+const queries = require('./CMS_queries.js');
 
 const connection = mysql.createConnection({
     host: 'localhost',
@@ -15,7 +15,7 @@ connection.connect((err) => {
     if (err) throw err;
 
     console.log(`CONNECTION ESTABLISHED WITH ${connection.database}`);
-    const queries = new queryHandler(connection);
+    const queryHandler = new queries(connection);
     init();
 })
 // how to call init after the query is complete from a seperate class
@@ -41,9 +41,10 @@ function init() {
                 'Exit'
             ]
         }
-    ).then((answer) => {
+    ).then(async (answer) => {
         switch(answer.choice) {
             case 'View All Employees':
+                await queryHandler.wait();
                 break
             case 'View All Employees By Department':
                 break
@@ -66,13 +67,13 @@ function init() {
             case 'View Total Utilized Budget By Department':
                 break
             case 'Exit':
-                connection.end();
                 console.log(`CONNECTION CLOSED WITH ${connection.database}`);
+                connection.end();
                 break
             default:
-                connection.end();
                 console.log(`CONNECTION CLOSED WITH ${connection.database}`);
+                connection.end();
                 break
         }
-    });
+    }).then(console.log('that one'));
 }
