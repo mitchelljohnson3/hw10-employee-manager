@@ -647,11 +647,6 @@ class queries {
             });
         });
     }
-
-    async viewTUBByDepartment(resolve) {
-
-    }
-
 }
 
 module.exports = queries;

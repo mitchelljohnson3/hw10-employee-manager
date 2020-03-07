@@ -39,7 +39,6 @@ function init(queryHandler) {
                     'View All Departments',
                     'Add Department',
                     'Delete Department',
-                    'View Total Utilized Budget By Department',
                     'Exit'
                 ]
         }
@@ -84,9 +83,6 @@ function init(queryHandler) {
                     break;
                 case 'Delete Department':
                     queryHandler.deleteDepartment(resolve);
-                    break;
-                case 'View Total Utilized Budget By Department':
-                    queryHandler.viewTUBByDepartment(resolve);
                     break;
                 case 'Exit':
                     console.log('CONNECTION CLOSED');
