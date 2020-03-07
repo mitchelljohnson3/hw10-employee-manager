@@ -5,6 +5,9 @@
     This program will allow you ( a company ) to manage your company database using a simple command line tool
     This program is started using 'node db_controller.js' while inside of the CMS folder
     The UI is very simple to use
+	
+	Remember to first initialize the local sql server using the initialize.sql file
+	Then fill it with sample data using the seed.sql file
 
 #PSEUDO-CODE#
 
