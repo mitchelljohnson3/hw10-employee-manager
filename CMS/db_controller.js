@@ -24,25 +24,28 @@ function init(queryHandler) {
             message: 'What would you like to do?',
             name: 'choice',
             type: 'list',
-            choices: 
-            [
-                'View All Employees',
-                'View All Employees By Department',
-                'View All Employees By Manager',
-                'Add Employee',
-                'Remove Employee',
-                'Update Employee Role',
-                'Update Employee Manager',
-                'View All Roles',
-                'Add Role',
-                'Delete Role',
-                'View Total Utilized Budget By Department',
-                'Exit'
-            ]
+            choices:
+                [
+                    'View All Employees',
+                    'View All Employees By Department',
+                    'View All Employees By Manager',
+                    'Add Employee',
+                    'Remove Employee',
+                    'Update Employee Role',
+                    'Update Employee Manager',
+                    'View All Roles',
+                    'Add Role',
+                    'Delete Role',
+                    'View All Departments',
+                    'Add Department',
+                    'Delete Department',
+                    'View Total Utilized Budget By Department',
+                    'Exit'
+                ]
         }
     ).then(async (answer) => {
         await new Promise((resolve, reject) => {
-            switch(answer.choice) {
+            switch (answer.choice) {
                 case 'View All Employees':
                     queryHandler.viewAllEmployees(resolve);
                     break;
@@ -72,6 +75,15 @@ function init(queryHandler) {
                     break;
                 case 'Delete Role':
                     queryHandler.deleteRole(resolve);
+                    break;
+                case 'View All Departments':
+                    queryHandler.viewAllDepartments(resolve);
+                    break;
+                case 'Add Department':
+                    queryHandler.addDepartment(resolve);
+                    break;
+                case 'Delete Department':
+                    queryHandler.deleteDepartment(resolve);
                     break;
                 case 'View Total Utilized Budget By Department':
                     queryHandler.viewTUBByDepartment(resolve);

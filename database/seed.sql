@@ -22,7 +22,7 @@ INSERT INTO employee(first_name, last_name, role_id, manager_id)
 VALUES('Alison', 'Sandovel', 1, null), ('Malcolm', 'Alexander', 2, 1), ('Tommie', 'Brock', 3, 1), ('Shirley', 'Stewart', 4, 1), ('Robert', 'Bailey', 5, 1);
 -- R&D employees
 INSERT INTO employee(first_name, last_name, role_id, manager_id)
-VALUES('Clyde', 'Rodqiguez', 6, null), ('Lilia', 'Underwood', 7, 6), ('Kayla', 'Watkins', 8, 6), ('Lora', 'Cross', 9, 6), ('Martha', 'Payne', 10, 6);
+VALUES('Clyde', 'Rodriguez', 6, null), ('Lilia', 'Underwood', 7, 6), ('Kayla', 'Watkins', 8, 6), ('Lora', 'Cross', 9, 6), ('Martha', 'Payne', 10, 6);
 -- Marketinghg employees
 INSERT INTO employee(first_name, last_name, role_id, manager_id)
 VALUES('Eleanor', 'Kelly', 11, null), ('Jenny', 'Schmidt', 12, 11), ('Shannon', 'Mann', 13, 11), ('Elizabeth', 'Boone', 14, 11), ('Candice', 'Norris', 15, 11);
